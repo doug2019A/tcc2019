@@ -1,0 +1,176 @@
+body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: #8f3faf;
+}
+
+h1 {
+    margin: 0;
+    font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: black;
+    
+}
+
+
+.botaoEnvia{
+    color: #f1f1f1;
+    text-decoration: none;
+    text-align: justify;
+    padding: 5px 30px;
+    background-color: #8f3faf;
+    font-size: .9em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.botaoEnvia1{
+    color: #f1f1f1;
+    text-decoration: none;
+    text-align: justify;
+    padding: 5px 30px;
+    background-color:red;
+    font-size: .9em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.botaoEnvia2{
+    color: #f1f1f1;
+    text-decoration: none;
+    text-align: justify;
+    padding: 5px 30px;
+    background-color: yellow;
+    font-size: .9em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.botaoEnvia3{
+    color: #f1f1f1;
+    text-decoration: none;
+    text-align: justify;
+    padding: 5px 30px;
+    background-color: green;
+    font-size: .9em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/*
+NAVEGAÇÃO
+*/
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:darkgreen
+}
+
+nav > a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: Pacifico, serif;
+}
+
+/*
+CABEÇALHO
+*/
+
+header {
+   
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+header p {
+    margin-bottom: 2em;
+    color: black;
+}
+
+/*
+SOBRE
+*/
+
+#Metodo_Automatico {
+     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:darkgreen;
+    color: #f1f1f1;
+}
+            
+#Metodo_Automatico div {
+    display:contents;
+    flex-direction:row;
+    align-items: center;
+    text-align:center;
+    
+    margin-top: 10px;
+}
+
+
+
+    
+  #mostrar{
+       display: none;
+      }
+
+     #passar_mouse:hover #mostrar{
+       display:block;
+       }
+
+
+/*
+FOOTER
+*/
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color:darkgreen;
+    color: #f1f1f1;
+}
+
+/*
+MEDIA QUERIES
+*/
+
+@media screen and (min-width: 768px) {
+    /*
+    NAVEGAÇÃO
+    */
+    nav {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        width: 70%;
+    }
+    
+    /*
+    CABEÇALHO
+    */
+    
+    header {
+        height: 100px;
+        height: 20vh;
+        justify-content: center;
+    }
+    
+        
+    
+}
+   
