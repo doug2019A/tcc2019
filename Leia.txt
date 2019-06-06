@@ -1,0 +1,3 @@
+Os códigos postados podem ser usados livremente para projetos futuros. 
+Todos os códigos precisam ser editados a necessidade do desenvolvedor.
+Caso algum der erro ao abrir, como o de extenção .ino pode ser abrir em qualquer editor de código.(Notepad,Brackets, etc). 
