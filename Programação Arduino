@@ -81,7 +81,7 @@ void loop()
             //Despois de lido o valor é mapeado de 0 a 100
             int valor = map(valor_analogico, 0, 1023, 0 , 100);
 
-            //As linhas a seguir são referentes aos perfis de irrigação selecionados pelo usuario
+            //As linhas a seguir são referentes aos perfis de irrigação selecionados pelo usuario, valores adotados apos varios testes
             //Açao do perfil 01
             if ( acao == "001" && valor >= 60 && valor <= 100 ) {
               digitalWrite(RELE1, LOW);
