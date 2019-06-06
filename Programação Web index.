@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+ <meta name="viewport" content="width=decive-width; intial-scale=1; maximum-scale=1">
+<link href="Referencia ao CSS da pagina" rel="stylesheet" type="text/css">
+    </head>
+<script language=JavaScript>
+
+    //Função de login e senha para acessar o sistema.
+<!--
+function Login(){
+var done=0;
+var username=document.login.username.value;
+username=username.toLowerCase();
+var password=document.login.password.value;
+password=password.toLowerCase();
+
+
+if (username=="admin" && password=="admin") { window.location="Aqui se o login estiver correto chama a proxima pagina"; done=1; }
+if (done==0) { alert("login invalido!"); }
+}
+//-->
+</script>
+<body>
+<center>
+
+            <nav>
+                  <a href="#">Irrigador Autônomo</a>
+                    
+             </nav>
+             
+<form name=login>
+<table cellPadding=3 border=0>
+  <tbody>
+  
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+  <tr>
+    <td><font face=verdana color=#000000 size=1>Usuário:</font></td>
+    <td><input name=username></td>  
+    </tr>
+  <tr>
+    <td><font face=verdana color=#000000 size=1>Senha:</font></td>
+    <td><input type=password name=password></td>
+    </tr>
+  <tr>
+    <td align=middle colSpan=2><input onclick=Login() type=button value=Login></td>
+    </tr>
+    </tbody>
+    </table>
+    </form>
+    
+    </center>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <footer>
+      <p>Desenvolvido por Douglas e Paulo.</p>
+      </footer>
+
+</body>
+</html>
