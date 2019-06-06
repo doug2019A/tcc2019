@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Sistema de Monitoramento </title>
+    <meta charset="utf-8" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Slab:400,700|Pacifico' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=decive-width; intial-scale=1; maximum-scale=1">
+    <script src="jquery.js"> </script>
+    <link href="CSS" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="#">Irrigador Autonomo</a>
+
+    </nav>
+
+    <header>
+        <h1>Perfis de Irrigação Automaticos</h1>
+        
+    </header>
+    
+     <section id="Metodo_Automatico">
+        <h2>Modo Automatico</h2>
+
+
+        <p>Selecione para que o sistema ative a irrigação automaticamente.</p>
+          
+        <h2>Umidade do Solo:</h2>
+        <p id="sensor1">0</p>
+         <p>
+         </p>
+         
+                 
+            
+            <input type="button" title="Perfil 1 para irrigação" class=" botaoEnvia1" id="001"> Perfil 1           
+            <input type="button" title="Perfil 2 para irrigação" class=" botaoEnvia2" id="002"> Perfil 2 
+            <input type="button" title="Perfil 3 para irrigação" class=" botaoEnvia3" id="003"> Perfil 3
+            <input type="button" title="Perfil 4 para irrigação" class=" botaoEnvia4" id="004"> Perfil 4
+            
+         
+             <br>
+            <br>
+            <span id="resultRELE1"></span>
+         
+         <input type="button" title="Parada do Sistema" class=" botaoEnvia" id="007"> Parar Sistema
+         
+         
+         
+
+    </section>
+    
+    Status: <span id="status" class="label"></span>
+    
+    <br>
+    <br>
+     
+    <div t>
+         <a href="#" onclick="toggle('maisinfo');">Mais Informação sobre os Perfis de irrigação</a>
+         <div id="maisinfo" style="display:none"><img src="Imagem de legenda " name="a" /></div>
+    
+          </div>
+    
+     <footer>
+        <p>Desenvolvido por Douglas e Paulo.</p>
+    </footer>
+    
+    </body>
+    
+    </html>
+
+
+
+<script type="text/javascript">
+   
+    //função para mostrar uma pequena imagem de legenda
+    function toggle(obj) {
+       var el = document.getElementById(obj);
+    if ( el.style.display != 'none' ) {
+          el.style.display = 'none';
+            } 
+       else {
+         el.style.display = '';
+     }
+}
+    //funções de envio e requisições ao Arduino
+    var url = 'IP do Arduino';
+    var data;
+    var options = {
+        title: 'Arduino Web',
+        curveType: 'function'
+    };
+    $(document).ready(function() {
+        $('.botaoEnvia,.botaoEnvia1,.botaoEnvia2,.botaoEnvia3,.botaoEnvia4').click(function() {
+            var valor = $(this).attr('id');
+            enviaDados(valor);
+        });
+
+
+
+        function enviaDados(dado) {
+            $.ajax({
+                url: url,
+                data: {
+                    'acao': dado
+                },
+                dataType: 'jsonp',
+                crossDomain: true,
+                jsonp: false,
+                jsonpCallback: 'dados',
+                success: function(data, status, xhr) {
+
+
+                    // posso ler dados e retoranar na pagina para avisar se o sistema esta ligado ou desligado.
+                    console.log(data.RELE1);
+
+                    $('#resultRELE1').text(statusReturn(data.RELE11));
+
+                }
+            });
+            return false;
+        }
+
+        function statusReturn(valor) {
+            if (valor == 0) {
+                return "Sistema Ligado";
+            } else if (valor == 1) {
+                return "Sistema Desligado";
+            } else {
+                
+            }
+        }
+
+        var i = 0;
+
+        function fazerRequisicao() {
+            $('#status').removeClass('label-success').addClass('label-warning');
+            $('#status').text("Enviando Requisição...");
+            $.ajax({
+                url: url,
+                data: {
+                    '': ''
+                },
+                dataType: 'jsonp', // IMPORTANTE
+                crossDomain: true, // IMPORTANTE
+                jsonp: false,
+                jsonpCallback: 'dados', // IMPORTANTE
+                success: function(data, status, xhr) {
+                    $('#status').removeClass('label-warning').addClass('label-success')
+                    $('#status').text("Requisição Recebida!");
+                    $('#sensor1').text(data.sensor1);
+
+                    $('#resultRELE1').text(statusReturn(data.RELE1));
+
+                    i++;
+
+                }
+            });
+            return false;
+        }
+
+        // A cada 1000 milis (1 segundo), faça uma nova requisição.
+        setInterval(fazerRequisicao, 1000);
+        
+    });
+    
+   
+
+</script>
